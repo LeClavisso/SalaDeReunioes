@@ -1,0 +1,67 @@
+﻿@{
+    string nome, email, assunto, conteudo;
+    string mensagem = "Preencha todos os campos!";
+
+   if (IsPost)
+   {
+        nome = Request["txt_nome"];
+        email = Request["txt_email"];
+        assunto = Request["txt_assunto"];
+        conteudo = Request["txt_conteudo"];
+        
+    }
+
+
+
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    <link href="~/StyleSheet.css" rel="stylesheet" />
+    <link href="~/StyleSheetForm.css" rel="stylesheet" />
+    <title>Reservar Sala</title>
+</head>
+<body>
+    <header>
+        <h1>IBM                                                                                                            </h1>
+    </header>
+
+    <nav>
+
+
+        <ul>
+            <li><a href="~/layout.cshtml" class="button">Home</a></li>
+            <li><a href="~/Horarios.cshtml" class="button">Horários Disponíveis</a></li>
+            <li><a href="~/Login.cshtml" class="button">Login Administrador</a></li>
+            <li><a href="~/Sobre.cshtml" class="button">Sobre</a></li>
+            <li><a href="https://www.ibm.com/br-pt/" class="button">IBM</a></li>
+            <!--  <li><a href="#" class="button">Link 6</a></li>
+             <li><a href="#" class="button">Link 7</a></li>-->
+        </ul>
+    </nav>
+    <main>
+        <div class="pgEmail">
+            <div class="Email">
+                <div class="formEmail">
+                    <form id="formEmail" tabindex="1" action="" method="post">
+                        <input id="nome" name="txt_nome" required="" type="text" placeholder="Nome" />
+                        <input id="email" name="txt_email" required="" type="email" placeholder="Email" />
+                        <input id="assunto" name="txt_assunto" required="" type="text" placeholder="Assunto" />
+                        <textarea id="conteudo" name="txt_conteudo" required="" placeholder="Deixe uma mensagem"></textarea>
+                        <input type="submit" value="Enviar" onClick="alert(@mensagem)" />
+                        <input type="reset" value="Limpar" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        Desafio técnico do processo seletivo estágiario BTP - IBM.
+    </footer>
+</body>
+</html>

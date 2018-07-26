@@ -1,0 +1,58 @@
+﻿.formEmail {
+    width: 100%;
+}
+
+    .formEmail input {
+        width: 90%;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .formEmail textarea {
+        width: 90%;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+
+
+.pgEmail input {
+    padding-left: 20px;
+    color: #292929;
+    font-size: 18px;
+    background-color: #E9E9E9;
+    border: 1px solid #E9E9E9;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    height: 40px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+}
+
+.pgEmail textarea {
+    padding-left: 20px;
+    color: #292929;
+    font-size: 18px;
+    background-color: #E9E9E9;
+    border: 1px solid #E9E9E9;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    height: 200px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+}
+
+input[type="submit"]:hover {
+    background-color: dimgrey;
+    color: black;
+    text-decoration: none;
+}
+input[type="reset"]:hover {
+    background-color: dimgrey;
+    color: black;
+    text-decoration: none;
+}

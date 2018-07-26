@@ -1,0 +1,124 @@
+﻿@{
+    string data;
+    string dia = DateTime.Now.Day.ToString();
+    string mes = DateTime.Now.Month.ToString();
+    string ano = DateTime.Now.Year.ToString();
+    if (Convert.ToInt16(mes) < 10)
+    {
+        data = ano + "-0" + mes + "-" + dia;
+    }
+    else
+    {
+        data = ano + "-" + mes + "-" + dia;
+    }
+    List<string> horarios = new List<string>()
+        {
+            "8 - 9",
+            "9 - 10",
+            "10 - 11",
+            "11 - 12",
+            "12 - 13",
+            "13 - 14",
+            "14 - 15",
+            "15 - 16",
+            "16 - 17",
+            "17 - 18"
+        };
+    List<string> disponibilidade = new List<string>()
+        {
+            "livre",
+            "livre",
+            "reservado",
+            "livre",
+            "livre",
+            "reservado",
+            "livre",
+            "livre",
+            "livre",
+            "livre"
+
+        };
+    List<string> pessoa = new List<string>()
+        {
+            "-",
+            "-",
+            "Monique",
+            "-",
+            "-",
+            "Cláudio",
+            "-",
+            "-",
+            "-",
+            "-"
+
+        };
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+        Horários Disponíveis
+    </title>
+    <meta name="viewport" content="width=devide-width, initial-scale = 1"> 
+    <link href="~/StyleSheet.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header>
+        <h1>IBM                                                                                                            </h1>
+    </header>
+
+    <nav>
+     
+
+        <ul>
+            <li><a href="~/layout.cshtml" class="button">Home</a></li>
+            <li><a href="~/Email.cshtml" class="button">Solicitar Reserva</a></li>
+            <li><a href="~/Login.cshtml" class="button">Login Administrador</a></li>
+            <li><a href="~/Sobre.cshtml" class="button">Sobre</a></li>
+           <li><a href="https://www.ibm.com/br-pt/" class="button">IBM</a></li>
+            
+           <!-- <li><a href="#" class="button">Link 7</a></li>-->
+        </ul>
+    </nav>
+
+    <main>
+        <div align="center">
+            <h2>Horários Disponíveis </h2>
+            <p>Selecione a data que deseja visualizar clicando abaixo.</p>
+            <input type="date" id="date" name="in_date" value="@data" />
+            <table border="1">
+                <caption>Dia 25/07</caption>
+                <tr>
+                    <th>Horário</th>
+                    <th>Disponibilidade</th>
+                    <th>Reservado por:</th>
+                </tr>
+                @{ for(int i = 0; i < horarios.Count; i ++)
+                    {
+                        string hora = horarios[i];
+                        string livre = disponibilidade[i];
+                        string responsavel = pessoa[i];
+
+                            <tr>
+                                <td>@hora</td>
+                                <td>@livre</td>
+                                <td>@responsavel</td>
+                            </tr>
+                       
+                    } 
+                    }
+                
+        </table>
+</div>
+</main>
+
+    
+    <footer>
+        Desafio técnico do processo seletivo estágiario BTP - IBM.
+    </footer>
+</body>
+</html>
