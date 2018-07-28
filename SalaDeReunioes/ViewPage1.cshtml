@@ -1,0 +1,33 @@
+﻿@using System;
+@using System.Collections.Generic;
+@using System.Web.Script.Serialization;
+@{
+    JavaScriptSerializer serializer = new System.Web.Script.Serialization.JavaScriptSerializer();
+    string json = @"{ ""dia"" : ""21/08"", ""hora"" : ""8-9h"", ""diponibilidade"": ""livre"", ""Responsável"": ""Vania"" }";
+
+    dynamic resultado = serializer.DeserializeObject(json);
+
+    foreach (KeyValuePair<string, object> entry in resultado)
+    {
+        var key = entry.Key;
+        var value = entry.Value as string;
+        <p>@(key.ToString())   @(value.ToString()) </p>
+
+    }
+
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+<body>
+    <div>
+
+    </div>
+</body>
+</html>

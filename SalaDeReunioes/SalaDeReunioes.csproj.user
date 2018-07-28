@@ -6,8 +6,12 @@
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
-    <IISExpressUseClassicPipelineMode />
+    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
     <UseGlobalApplicationHostFile />
+    <LastActiveSolutionConfig>Debug|Any CPU</LastActiveSolutionConfig>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ReferencePath>C:\Users\Leticia\Desktop\SalaDeReunioes\packages\</ReferencePath>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>

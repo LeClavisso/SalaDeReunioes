@@ -1,12 +1,29 @@
-﻿@{
+﻿@using MongoDB.Bson;
+@using MongoDB.Driver;
+@using MongoDB.Driver.Linq;
+@using MongoDB.Driver.Builders;
+@using MongoDB.Driver.Core;
+@using MongoDB.Bson.Serialization.Attributes;
+@using System.ComponentModel.DataAnnotations;
+@{
+    string connectionString = "mongodb://localhost:27017";
+    MongoClient client = new MongoClient(connectionString);
+    IMongoDatabase db = client.GetDatabase("SalaDeReunioes");
+
+    //var docs = db.GetCollection<string>("Login").Find(Query.EQ("_id", 10)).SetFields(Fields.ElemMatch("planet_sizes", Query.EQ("id", 1))).ToList();
+
+
+
+    List<string> code = db.GetCollection<String>("Login").Find(_ => true).ToList();
+
     string usuario, senha;
-    
+
     if (IsPost)
     {
         usuario = Request["txt_user"];
         senha = Request["txt_senha"];
-       
-       
+
+
     }
 
 
@@ -43,6 +60,11 @@
         </ul>
     </nav>
     <main>
+        @{ //foreach(string s in code){
+            // <p>@s</p>
+            // }
+        }
+
         <div class="pgEmail">
             <div class="Email">
                 <div class="formEmail">
@@ -50,7 +72,7 @@
                         <input id="usuario" name="txt_user" required="" type="text" placeholder="Usuário" />
                         <input id="senha" name="txt_senha" required="" type="password" placeholder="Senha" />
                         <input type="submit" value="Entrar" />
-                        
+
                     </form>
                 </div>
             </div>

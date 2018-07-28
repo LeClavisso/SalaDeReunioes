@@ -1,0 +1,80 @@
+﻿@using System.Net.Mail;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>
+        Email
+    </title>
+    <meta name="viewport" content="width=devide-width, initial-scale = 1"> 
+    <link href="~/StyleSheet.css" rel="stylesheet" />
+</head>
+
+<body>
+    <header>
+        <h1>IBM                                                                                                            </h1>
+    </header>
+
+    <nav>
+     
+
+        <ul>
+            <li><a href="~/layout.cshtml" class="button">Home</a></li>
+            <li><a href="~/Horarios.cshtml" class="button">Horários Disponíveis</a></li>
+            <li><a href="~/Email.cshtml" class="button">Solicitar Reserva</a></li>
+            <li><a href="~/Login.cshtml" class="button">Login Administrador</a></li>
+            <li><a href="~/Sobre.cshtml" class="button">Sobre</a></li>
+            <li><a href="https://www.ibm.com/br-pt/" class="button">IBM</a></li>
+           <!--  <li><a href="#" class="button">Link 6</a></li>
+            <li><a href="#" class="button">Link 7</a></li>-->
+        </ul>
+    </nav>
+
+    <main>
+        @{ 
+            string email = Request["txt_email"];
+            string nome = Request["txt_nome"];
+            string assunto = Request["txt_assunto"];
+            string mensagem = Request["txt_conteudo"];
+            string assuntocomp = "Reserva de sala para " + nome;
+            string corpo = email + "                " + mensagem;
+            try {
+
+                MailMessage mail = new MailMessage();
+                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+
+                mail.From = new MailAddress(email);
+                mail.To.Add("joao.ibm.teste@gmail.com");
+                mail.Subject = assuntocomp;
+                mail.Body = corpo;
+
+                SmtpServer.Port = 587;
+                SmtpServer.UseDefaultCredentials = false;
+                SmtpServer.Credentials = new System.Net.NetworkCredential("joao.ibm.teste@gmail.com", "ibm/1234");
+                SmtpServer.EnableSsl = true;
+
+                SmtpServer.Send(mail);
+
+                
+        <p>E-mail enviado com sucesso!</p>
+        <p>Em breve enviaremos uma resposta a respeito da reserva da sala!</p>
+                }
+            catch (Exception ex) {
+        <p>Ocorreu um erro e seu e-mail não foi enviado. Tente novamente!</p>
+        <p>@ex</p>
+        
+                }
+            }
+    </main>
+
+    
+    <footer>
+        Desafio técnico do processo seletivo estágiario BTP - IBM.
+    </footer>
+</body>
+</html>
